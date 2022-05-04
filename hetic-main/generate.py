@@ -1,5 +1,7 @@
-from random import randint
+
 from json import dumps
+from random import randint
+
 TRAIN_SET_LIMIT = 1000
 TRAIN_SET_COUNT = 100
 
@@ -13,9 +15,8 @@ for i in range(TRAIN_SET_COUNT):
     TRAIN_INPUT.append([a, b, c])
     TRAIN_OUTPUT.append(op)
 
+with open("dataset_repo/input.data.json", "w") as f:
+  f.write(dumps(TRAIN_INPUT))
 
-with open("docker-file/data/input.json", "w") as f :
-    f.write(dumps(TRAIN_INPUT))
-
-with open("docker-file/data/output.json", "w") as f :
-    f.write(dumps(TRAIN_OUTPUT))
+with open("dataset_repo/output.data.json", "w") as f:
+  f.write(dumps(TRAIN_OUTPUT))
